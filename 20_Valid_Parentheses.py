@@ -29,7 +29,26 @@ def isValid(strs):
 
             temp.pop()
     return False if temp else True
+'''
+brackets_pair = {')': '(', ']': '[', '}': '{'}
+left_bkt = ['(', '{', '[']
 
 
+def isValid(s):
+
+    stack = []
+
+    for i in s:
+        if i in left_bkt:
+            stack.append(i)
+        elif i in right_bkt:
+            if not stack or stack[-1] != brackets_pair[i]:
+                return False
+            stack.pop()
+        else:
+            return False
+    return False if not stack else True
+
+'''
 a = isValid('()')
 print(a)
